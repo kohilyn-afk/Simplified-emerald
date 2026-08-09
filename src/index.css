@@ -1,0 +1,96 @@
+@import "tailwindcss";
+
+@layer utilities {
+  .font-display {
+    font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+    letter-spacing: -0.02em;
+  }
+  .font-sans {
+    font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  }
+  .font-grotesk {
+    font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+    letter-spacing: -0.01em;
+  }
+}
+
+/* Custom dark forest theme scrollbar with golden accents */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #091710;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #1b3829;
+  border-radius: 4px;
+  border: 1px solid rgba(229, 185, 88, 0.2);
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #284e3a;
+}
+
+/* Atmospheric pastel dark forest background overlay with golden hues */
+.forest-bg-mesh {
+  background-color: #091710;
+  background-image: 
+    radial-gradient(at 0% 0%, rgba(35, 75, 54, 0.35) 0px, transparent 55%),
+    radial-gradient(at 100% 0%, rgba(229, 185, 88, 0.12) 0px, transparent 50%),
+    radial-gradient(at 50% 100%, rgba(53, 110, 81, 0.25) 0px, transparent 60%),
+    radial-gradient(at 85% 50%, rgba(212, 175, 55, 0.08) 0px, transparent 45%),
+    radial-gradient(at 15% 75%, rgba(162, 210, 180, 0.1) 0px, transparent 50%);
+}
+
+.forest-card {
+  background: linear-gradient(135deg, rgba(20, 46, 34, 0.9) 0%, rgba(11, 27, 19, 0.95) 100%);
+  border: 1px solid rgba(162, 210, 180, 0.2);
+  box-shadow: 0 12px 35px -10px rgba(4, 16, 10, 0.6);
+}
+
+.forest-card:hover {
+  border-color: rgba(229, 185, 88, 0.45);
+  box-shadow: 0 14px 40px -10px rgba(229, 185, 88, 0.15);
+}
+
+.forest-card-gold {
+  background: linear-gradient(135deg, rgba(28, 54, 40, 0.9) 0%, rgba(18, 38, 28, 0.95) 100%);
+  border: 1px solid rgba(229, 185, 88, 0.35);
+  box-shadow: 0 12px 35px -10px rgba(229, 185, 88, 0.12);
+}
+
+.forest-glow {
+  box-shadow: 0 0 28px -4px rgba(162, 210, 180, 0.25);
+}
+
+.gold-glow {
+  box-shadow: 0 0 25px -2px rgba(229, 185, 88, 0.35);
+}
+
+.gold-glow-subtle {
+  box-shadow: 0 0 15px -3px rgba(229, 185, 88, 0.2);
+}
+
+.gold-gradient-btn {
+  background: linear-gradient(135deg, #f3d38c 0%, #e5b958 50%, #cfa33a 100%);
+  color: #08150e;
+}
+
+.gold-gradient-btn:hover {
+  filter: brightness(1.1);
+  box-shadow: 0 0 25px rgba(229, 185, 88, 0.45);
+}
+
+.gold-gradient-text {
+  background: linear-gradient(135deg, #f9e2b0 0%, #e5b958 50%, #cfa33a 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.pastel-sage-text {
+  color: #a8dadc;
+}
+

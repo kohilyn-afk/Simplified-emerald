@@ -1,0 +1,6 @@
+{
+  "name": "Koh I-Lyn & Co | Sustainability, Accounting & Data Analytics",
+  "description": "Direct C-suite advisory platform for Malaysian enterprise sustainability, MFRS accounting, and data analytics in a Dark Forest aesthetic.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
