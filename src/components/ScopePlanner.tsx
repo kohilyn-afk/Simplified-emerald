@@ -7,7 +7,7 @@ interface ScopePlannerProps {
   onOpenContactWithScope: (scopeSummary: string) => void;
 }
 
-export const ScopePlanner: React.FC<ScopePlannerProps> = ({ initialSelectedId }) => {
+export const ScopePlanner: React.FC<ScopePlannerProps> = ({ initialSelectedId, onOpenContactWithScope }) => {
   const [selectedModuleIds, setSelectedModuleIds] = useState<string[]>(
     initialSelectedId ? [initialSelectedId] : ['sustainability', 'accounting', 'analytics']
   );
@@ -24,16 +24,23 @@ export const ScopePlanner: React.FC<ScopePlannerProps> = ({ initialSelectedId })
   const totalPriceRM = selectedModules.reduce((acc, m) => acc + m.basePrice, 0);
 
   const buildScopeSummaryText = () => {
-    const list = selectedModules.map((m) => `• ${m.name} (RM ${m.basePrice.toLocaleString()} / p.a.)`).join('\n');
-    return `Selected Advisory Scope:\n${list}\n\nTotal Estimated Investment: RM ${totalPriceRM.toLocaleString()} / p.a.`;
+    if (selectedModules.length === 0) return 'No modules selected.';
+    const list = selectedModules
+      .map((m) => `• ${m.name} — RM ${m.basePrice.toLocaleString()} / p.a.`)
+      .join('\r\n');
+    return `SELECTED ADVISORY MODULES (${selectedModules.length}):\r\n${list}\r\n\r\nTOTAL ESTIMATED INVESTMENT:\r\nRM ${totalPriceRM.toLocaleString()} / p.a.`;
   };
 
   const handleBookConsultationEmail = () => {
-    const subject = encodeURIComponent('Official Scope Proposal Request - Koh I-Lyn Advisory');
-    const body = encodeURIComponent(
-      `Hello Koh I-Lyn,\n\nI would like to request an official advisory proposal for the following selected scope:\n\n${buildScopeSummaryText()}\n\nPlease reach out to me to schedule an initial consultation.`
-    );
-    window.location.href = `mailto:connect@kohilyn.com?subject=${subject}&body=${body}`;
+    const scopeSummary = buildScopeSummaryText();
+    if (onOpenContactWithScope) {
+      onOpenContactWithScope(scopeSummary);
+    } else {
+      const subject = encodeURIComponent('Official Scope Proposal Request - Koh I-Lyn & Co.');
+      const emailBody = `Hello Koh I-Lyn,\r\n\r\nI would like to request an official advisory proposal for the following selected scope:\r\n\r\n${scopeSummary}\r\n\r\nPlease reach out to me to schedule an initial consultation.\r\n\r\nThank you.`;
+      const body = encodeURIComponent(emailBody);
+      window.location.href = `mailto:connect@kohilyn.com?subject=${subject}&body=${body}`;
+    }
   };
 
   return (
