@@ -16,25 +16,25 @@ export const Hero: React.FC = () => {
         <div className="text-center max-w-4xl mx-auto space-y-6">
           
           {/* Credentials Badge with Gold Accent */}
-          <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-[#132d20] border border-[#e5b958]/35 text-[#e2f1e8] text-xs font-semibold shadow-inner">
+          <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-[#132d20] border border-[#e5b958]/35 text-[#e2f1e8] text-sm font-semibold shadow-inner">
             <Award className="w-4 h-4 text-[#f3d38c]" />
             <span className="text-[#f3d38c] font-mono font-bold">FCCA • CA(M) • BA(Hons) UK</span>
             <span className="hidden sm:inline text-[#a8dadc]">• Oxford Certified Sustainable Corporations Expert</span>
           </div>
 
           {/* Main Display Headline */}
-          <h1 className="font-display text-3xl sm:text-5xl lg:text-6xl font-extrabold text-[#f2faf5] tracking-tight leading-[1.15]">
-            Bridging <span className="gold-gradient-text">Sustainability Mandates</span>, MFRS Accounting & Data Analytics
+          <h1 className="font-display text-4xl sm:text-6xl lg:text-7xl font-extrabold text-[#f2faf5] tracking-tight leading-[1.15]">
+            Bridging <span className="gold-gradient-text">Sustainability Mandates</span>, Accounting & Data Analytics
           </h1>
 
           {/* Credentials Pills List */}
           <div className="pt-6 grid grid-cols-2 sm:grid-cols-4 gap-2.5 text-left max-w-4xl mx-auto">
             {KOHILYN_CREDENTIALS.map((cred) => (
-              <div key={cred.abbr} className="p-3 rounded-xl bg-[#11261b] border border-[#224835] hover:border-[#e5b958]/30 transition-colors flex items-center gap-2.5">
+              <div key={cred.abbr} className="p-3.5 rounded-xl bg-[#11261b] border border-[#224835] hover:border-[#e5b958]/30 transition-colors flex items-center gap-2.5">
                 <CheckCircle2 className="w-4 h-4 text-[#90d0a7] shrink-0" />
                 <div>
-                  <div className="text-xs font-bold text-[#f3d38c] font-mono">{cred.abbr}</div>
-                  <div className="text-[10px] text-[#a8bba0] line-clamp-1">{cred.title}</div>
+                  <div className="text-sm font-bold text-[#f3d38c] font-mono">{cred.abbr}</div>
+                  <div className="text-xs text-[#a8bba0] line-clamp-1">{cred.title}</div>
                 </div>
               </div>
             ))}

@@ -11,7 +11,7 @@ export const SERVICE_ITEMS: ServiceItem[] = [
   {
     id: 'sustainability',
     pillar: 'sustainability',
-    title: '1) Sustainability Advisory',
+    title: '1) Sustainability',
     subtitle: 'Embed Sustainability in Design, Industry Carbon Benchmarking & Standards Assessment',
     description: 'Comprehensive sustainability counsel covering eco-design integration, carbon emission benchmarking against industry baselines, and gap checks against recognized standards (GRI, ISSB, Bursa Malaysia).',
     deliverables: [
@@ -28,12 +28,12 @@ export const SERVICE_ITEMS: ServiceItem[] = [
     pillar: 'accounting',
     title: '2) Accounting and Book-keeping',
     subtitle: 'Full-Scope General Ledger, SST Compliance & E-Invoicing Integration',
-    description: 'Complete corporate accounting and bookkeeping management, covering monthly general ledger closes, Sales & Service Tax (SST) filing, and seamless e-invoicing workflow readiness under MFRS guidelines.',
+    description: 'Complete corporate accounting and bookkeeping management, covering monthly general ledger closes, Sales & Service Tax (SST) filing, and seamless e-invoicing workflow readiness under standard guidelines.',
     deliverables: [
       'Full-scope general ledger maintenance & month-end closing',
       'Sales & Service Tax (SST) computation, reconciliation & submission',
       'LHDN E-Invoicing integration, workflow alignment & audit trail',
-      'MFRS-compliant annual financial statements & audit prep'
+      'Statutory-compliant annual financial statements & audit prep'
     ],
     impactMetric: 'RM 24,000 / annum',
     details: 'Led by Fellow ACCA and CA(M) expertise, we maintain high-precision bookkeeping, ensure full SST statutory compliance, and implement LHDN e-invoicing workflows tailored for Malaysian enterprises.'
@@ -59,7 +59,7 @@ export const ADVISORY_MODULES: AdvisoryModule[] = [
   {
     id: 'sustainability',
     pillar: 'sustainability',
-    name: '1) Sustainability Advisory',
+    name: '1) Sustainability',
     description: 'Embed sustainability in design, carbon emission calculation & industry benchmarking, and checks against standards (GRI/ISSB/Bursa).',
     basePrice: 45000
   },
@@ -121,7 +121,7 @@ export const CASE_STUDIES: CaseStudy[] = [
     client: 'Kuala Lumpur Multi-Branch Retail Group',
     industry: 'Multi-Unit Retail',
     impact: 'Reduced Month-End Close Time by 60%',
-    description: 'Restructured chart of accounts and general ledger workflows, establishing error-free monthly MFRS financial statements and automated TNB energy tracking across 42 branches.',
+    description: 'Restructured chart of accounts and general ledger workflows, establishing error-free monthly financial statements and automated TNB energy tracking across 42 branches.',
     metrics: [
       { label: 'Close Reduction', value: '60% Faster' },
       { label: 'Branches Integrated', value: '42 Units' },

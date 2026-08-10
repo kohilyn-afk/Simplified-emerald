@@ -24,7 +24,7 @@ export const Footer: React.FC = () => {
             </div>
 
             <p className="text-xs text-[#b2c5b9] max-w-md leading-relaxed">
-              FCCA, CA(M), BA(Hons) UK, Oxford Certified Sustainable Corporations Expert Specialist providing direct, agile 1-on-1 advisory for Malaysian C-suites, CFOs, and Board Directors.
+              FCCA, CA(M), BA(Hons) UK, Oxford Certified Sustainable Corporations Expert Specialist providing direct, agile 1-on-1 solutions for Malaysian C-suites, CFOs, and Board Directors.
             </p>
 
             <div className="flex items-center gap-3 text-xs pt-1">
@@ -51,12 +51,12 @@ export const Footer: React.FC = () => {
           {/* Quick Nav Links */}
           <div className="md:col-span-5 space-y-3">
             <div className="text-xs font-bold text-[#f2faf5] font-mono uppercase tracking-wider">
-              Advisory Navigation
+              Quick Navigation
             </div>
             <ul className="space-y-2 text-xs">
               <li><a href="#scope-planner" className="hover:text-[#f3d38c] transition-colors">Scope Proposal Planner</a></li>
               <li><a href="#about" className="hover:text-[#f3d38c] transition-colors">About Koh I-Lyn</a></li>
-              <li><a href="mailto:connect@kohilyn.com" className="hover:text-[#f3d38c] transition-colors">Advisory Contact</a></li>
+              <li><a href="mailto:connect@kohilyn.com" className="hover:text-[#f3d38c] transition-colors">Direct Contact</a></li>
             </ul>
           </div>
 

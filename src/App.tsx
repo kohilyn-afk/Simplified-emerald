@@ -27,8 +27,8 @@ export default function App() {
   const handleOpenContactWithTopic = (topic: string) => {
     setProposalModalState({
       isOpen: true,
-      subject: `C-Suite Advisory Discussion - ${topic}`,
-      bodyText: `Hello Koh I-Lyn,\n\nI would like to initiate a confidential advisory discussion regarding:\n${topic}\n\nPlease reach out to schedule an initial consultation.\n\nThank you.`,
+      subject: `C-Suite Discussion - ${topic}`,
+      bodyText: `Hello Koh I-Lyn,\n\nI would like to initiate a confidential discussion regarding:\n${topic}\n\nPlease reach out to schedule an initial consultation.\n\nThank you.`,
       recipient: 'connect@kohilyn.com',
     });
   };
@@ -37,7 +37,7 @@ export default function App() {
     setProposalModalState({
       isOpen: true,
       subject: 'Official Scope Proposal Request - Koh I-Lyn & Co.',
-      bodyText: `Hello Koh I-Lyn,\n\nI would like to request an official advisory proposal for the following selected scope:\n\n${scopeSummary}\n\nPlease reach out to me to schedule an initial consultation.\n\nThank you.`,
+      bodyText: `Hello Koh I-Lyn,\n\nI would like to request an official proposal for the following selected scope:\n\n${scopeSummary}\n\nPlease reach out to me to schedule an initial consultation.\n\nThank you.`,
       recipient: 'connect@kohilyn.com',
     });
   };
@@ -64,7 +64,7 @@ export default function App() {
         {/* Hero Section */}
         <Hero />
 
-        {/* Custom Advisory Engagement Planner */}
+        {/* Custom Scope Planner */}
         <ScopePlanner
           initialSelectedId={plannerPresetServiceId}
           onOpenContactWithScope={handleRequestScopeProposalEmail}

@@ -32,7 +32,7 @@ export const ServiceModal: React.FC<ServiceModalProps> = ({
         {/* Header */}
         <div className="space-y-2 border-b border-[#1f4230] pb-4 pr-10">
           <span className="text-[10px] font-mono font-bold uppercase tracking-wider text-[#f3d38c] bg-[#e5b958]/15 px-2.5 py-1 rounded border border-[#e5b958]/35">
-            Advisory Pillar Breakdown
+            Service Pillar Breakdown
           </span>
           <h3 className="font-display text-2xl font-bold text-[#f2faf5]">
             {service.title}

@@ -28,7 +28,7 @@ export const ScopePlanner: React.FC<ScopePlannerProps> = ({ initialSelectedId, o
     const list = selectedModules
       .map((m) => `• ${m.name} — RM ${m.basePrice.toLocaleString()} / p.a.`)
       .join('\r\n');
-    return `SELECTED ADVISORY MODULES (${selectedModules.length}):\r\n${list}\r\n\r\nTOTAL ESTIMATED INVESTMENT:\r\nRM ${totalPriceRM.toLocaleString()} / p.a.`;
+    return `SELECTED MODULES (${selectedModules.length}):\r\n${list}\r\n\r\nTOTAL ESTIMATED INVESTMENT:\r\nRM ${totalPriceRM.toLocaleString()} / p.a.`;
   };
 
   const handleBookConsultationEmail = () => {
@@ -37,7 +37,7 @@ export const ScopePlanner: React.FC<ScopePlannerProps> = ({ initialSelectedId, o
       onOpenContactWithScope(scopeSummary);
     } else {
       const subject = encodeURIComponent('Official Scope Proposal Request - Koh I-Lyn & Co.');
-      const emailBody = `Hello Koh I-Lyn,\r\n\r\nI would like to request an official advisory proposal for the following selected scope:\r\n\r\n${scopeSummary}\r\n\r\nPlease reach out to me to schedule an initial consultation.\r\n\r\nThank you.`;
+      const emailBody = `Hello Koh I-Lyn,\r\n\r\nI would like to request an official proposal for the following selected scope:\r\n\r\n${scopeSummary}\r\n\r\nPlease reach out to me to schedule an initial consultation.\r\n\r\nThank you.`;
       const body = encodeURIComponent(emailBody);
       window.location.href = `mailto:connect@kohilyn.com?subject=${subject}&body=${body}`;
     }
@@ -49,15 +49,15 @@ export const ScopePlanner: React.FC<ScopePlannerProps> = ({ initialSelectedId, o
         
         {/* Header */}
         <div className="text-center max-w-3xl mx-auto mb-16 space-y-3">
-          <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-[#143122] border border-[#e5b958]/35 text-[#f3d38c] text-xs font-semibold">
-            <Layers className="w-3.5 h-3.5 text-[#f3d38c]" />
+          <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-[#143122] border border-[#e5b958]/35 text-[#f3d38c] text-sm font-semibold">
+            <Layers className="w-4 h-4 text-[#f3d38c]" />
             <span>Tailored C-Suite Scope Builder</span>
           </div>
-          <h2 className="font-display text-3xl sm:text-4xl font-extrabold text-[#f2faf5]">
-            Custom Advisory Engagement Planner
+          <h2 className="font-display text-4xl sm:text-5xl font-extrabold text-[#f2faf5]">
+            Custom Engagement Scope Planner
           </h2>
-          <p className="text-sm sm:text-base text-[#b2c5b9] leading-relaxed">
-            Select the exact advisory modules required for your organization to generate an immediate scope proposal and investment breakdown in Ringgit Malaysia (RM).
+          <p className="text-base sm:text-lg text-[#b2c5b9] leading-relaxed">
+            Select the exact modules required for your organization to generate an immediate scope proposal and investment breakdown in Ringgit Malaysia (RM).
           </p>
         </div>
 
@@ -65,8 +65,8 @@ export const ScopePlanner: React.FC<ScopePlannerProps> = ({ initialSelectedId, o
           
           {/* Module Checklist Grid */}
           <div className="lg:col-span-7 space-y-4">
-            <div className="flex items-center justify-between text-xs font-mono font-bold text-[#f2faf5] border-b border-[#1f4230] pb-3">
-              <span>AVAILABLE ADVISORY MODULES ({ADVISORY_MODULES.length})</span>
+            <div className="flex items-center justify-between text-sm font-mono font-bold text-[#f2faf5] border-b border-[#1f4230] pb-3">
+              <span>AVAILABLE MODULES ({ADVISORY_MODULES.length})</span>
               <span className="text-[#a8bba0]">Click to toggle modules</span>
             </div>
 
@@ -77,7 +77,7 @@ export const ScopePlanner: React.FC<ScopePlannerProps> = ({ initialSelectedId, o
                   <div
                     key={module.id}
                     onClick={() => toggleModule(module.id)}
-                    className={`p-4 rounded-xl border transition-all cursor-pointer flex items-start gap-4 ${
+                    className={`p-4.5 rounded-xl border transition-all cursor-pointer flex items-start gap-4 ${
                       isSelected
                         ? 'bg-[#143122] border-[#e5b958] shadow-lg'
                         : 'bg-[#0e2117] border-[#224835] hover:border-[#90d0a7]/40 opacity-80'
@@ -93,15 +93,15 @@ export const ScopePlanner: React.FC<ScopePlannerProps> = ({ initialSelectedId, o
 
                     <div className="flex-1 space-y-1">
                       <div className="flex items-center justify-between gap-2">
-                        <h4 className="text-sm font-bold text-[#f2faf5]">{module.name}</h4>
-                        <span className="text-xs font-mono font-bold text-[#f3d38c] shrink-0">
+                        <h4 className="text-base font-bold text-[#f2faf5]">{module.name}</h4>
+                        <span className="text-sm font-mono font-bold text-[#f3d38c] shrink-0">
                           RM {module.basePrice.toLocaleString()} / p.a.
                         </span>
                       </div>
 
-                      <p className="text-xs text-[#b2c5b9] leading-relaxed">{module.description}</p>
+                      <p className="text-sm text-[#b2c5b9] leading-relaxed">{module.description}</p>
 
-                      <div className="flex items-center gap-3 pt-1 text-[10px] font-mono text-[#90d0a7]">
+                      <div className="flex items-center gap-3 pt-1 text-xs font-mono text-[#90d0a7]">
                         <span className="uppercase text-[#a8bba0]">Pillar: {module.pillar}</span>
                       </div>
                     </div>
@@ -114,10 +114,10 @@ export const ScopePlanner: React.FC<ScopePlannerProps> = ({ initialSelectedId, o
           {/* Proposal Summary Box */}
           <div className="lg:col-span-5 forest-card rounded-2xl p-6 sm:p-8 border border-[#e5b958]/35 sticky top-24 space-y-6">
             <div className="border-b border-[#1f4230] pb-4">
-              <span className="text-[10px] font-mono uppercase font-bold text-[#f3d38c] bg-[#e5b958]/15 px-2.5 py-1 rounded border border-[#e5b958]/35">
-                Direct Advisory Proposal Breakdown
+              <span className="text-xs font-mono uppercase font-bold text-[#f3d38c] bg-[#e5b958]/15 px-2.5 py-1 rounded border border-[#e5b958]/35">
+                Direct Scope Proposal Breakdown
               </span>
-              <h3 className="font-display text-xl font-bold text-[#f2faf5] mt-2">
+              <h3 className="font-display text-2xl font-bold text-[#f2faf5] mt-2">
                 Scope Summary
               </h3>
             </div>
@@ -125,10 +125,10 @@ export const ScopePlanner: React.FC<ScopePlannerProps> = ({ initialSelectedId, o
             {/* Selected items list */}
             <div className="space-y-2.5 max-h-56 overflow-y-auto pr-1">
               {selectedModules.length === 0 ? (
-                <p className="text-xs text-[#b2c5b9] italic">No modules selected. Select modules from the left list.</p>
+                <p className="text-sm text-[#b2c5b9] italic">No modules selected. Select modules from the left list.</p>
               ) : (
                 selectedModules.map((m) => (
-                  <div key={m.id} className="p-2.5 rounded-lg bg-[#0e2117] border border-[#224835] flex items-center justify-between text-xs">
+                  <div key={m.id} className="p-2.5 rounded-lg bg-[#0e2117] border border-[#224835] flex items-center justify-between text-sm">
                     <span className="text-[#e2f1e8] font-medium truncate max-w-[200px]">{m.name}</span>
                     <span className="font-mono text-[#f3d38c]">RM {m.basePrice.toLocaleString()}</span>
                   </div>
@@ -138,20 +138,20 @@ export const ScopePlanner: React.FC<ScopePlannerProps> = ({ initialSelectedId, o
 
             {/* Total Calculations */}
             <div className="p-4 rounded-xl bg-[#143122] border border-[#90d0a7]/30 space-y-3">
-              <div className="flex items-center justify-between text-xs text-[#b2c5b9]">
+              <div className="flex items-center justify-between text-sm text-[#b2c5b9]">
                 <span>Selected Scope Modules:</span>
                 <span className="font-mono text-[#f2faf5] font-bold">{selectedModules.length} Modules</span>
               </div>
 
               <div className="pt-2 border-t border-[#1f4230] flex items-center justify-between">
-                <span className="text-xs font-bold text-[#f2faf5] uppercase font-mono">Estimated Investment:</span>
-                <span className="text-2xl font-extrabold font-grotesk text-[#f3d38c]">
+                <span className="text-sm font-bold text-[#f2faf5] uppercase font-mono">Estimated Investment:</span>
+                <span className="text-3xl font-extrabold font-grotesk text-[#f3d38c]">
                   RM {totalPriceRM.toLocaleString()} / p.a.
                 </span>
               </div>
             </div>
 
-            <p className="text-[11px] text-[#b2c5b9] leading-tight">
+            <p className="text-xs text-[#b2c5b9] leading-tight">
               • Includes direct CA(M) & Oxford Certified Sustainable Corporations Expert oversight, analytics verification trails, and custom pipeline implementation.
             </p>
 
@@ -160,7 +160,7 @@ export const ScopePlanner: React.FC<ScopePlannerProps> = ({ initialSelectedId, o
               <button
                 onClick={handleBookConsultationEmail}
                 disabled={selectedModules.length === 0}
-                className="w-full py-3.5 rounded-xl text-xs font-bold gold-gradient-btn transition-all flex items-center justify-center gap-2 gold-glow disabled:opacity-50"
+                className="w-full py-3.5 rounded-xl text-sm font-bold gold-gradient-btn transition-all flex items-center justify-center gap-2 gold-glow disabled:opacity-50"
               >
                 <Mail className="w-4 h-4 text-[#08150e]" />
                 <span>Request Official Scope Proposal</span>

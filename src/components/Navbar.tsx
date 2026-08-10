@@ -27,15 +27,15 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenContact, activeSection }) 
             </div>
             <div>
               <div className="flex items-center gap-2">
-                <span className="font-display text-xl font-bold tracking-tight text-[#f2faf5]">
+                <span className="font-display text-2xl font-bold tracking-tight text-[#f2faf5]">
                   Koh I-Lyn & Co
                 </span>
-                <span className="text-[10px] uppercase font-mono px-1.5 py-0.5 rounded border border-[#e5b958]/40 text-[#f3d38c] bg-[#e5b958]/10 font-bold">
-                  Advisory
+                <span className="text-xs uppercase font-mono px-1.5 py-0.5 rounded border border-[#e5b958]/40 text-[#f3d38c] bg-[#e5b958]/10 font-bold">
+                  Practice
                 </span>
               </div>
-              <p className="text-[11px] text-[#a8bba0] tracking-wide font-medium hidden sm:block">
-                Sustainability • MFRS Accounting • Data Analytics
+              <p className="text-xs text-[#a8bba0] tracking-wide font-medium hidden sm:block">
+                Sustainability • Accounting • Data Analytics
               </p>
             </div>
           </a>
@@ -48,12 +48,12 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenContact, activeSection }) 
                 <a
                   key={link.name}
                   href={link.href}
-                  className="flex items-center gap-1.5 px-3 py-2 rounded-lg text-xs font-semibold text-[#b2c5b9] hover:text-[#f2faf5] hover:bg-[#143122] transition-all"
+                  className="flex items-center gap-1.5 px-3 py-2 rounded-lg text-sm font-semibold text-[#b2c5b9] hover:text-[#f2faf5] hover:bg-[#143122] transition-all"
                 >
-                  <Icon className="w-3.5 h-3.5 text-[#90d0a7]" />
+                  <Icon className="w-4 h-4 text-[#90d0a7]" />
                   <span>{link.name}</span>
                   {link.badge && (
-                    <span className="text-[9px] font-mono px-1 py-0.2 rounded bg-[#e5b958]/20 text-[#f3d38c] border border-[#e5b958]/35 font-bold">
+                    <span className="text-xs font-mono px-1.5 py-0.5 rounded bg-[#e5b958]/20 text-[#f3d38c] border border-[#e5b958]/35 font-bold">
                       {link.badge}
                     </span>
                   )}

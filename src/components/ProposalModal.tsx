@@ -50,31 +50,31 @@ export const ProposalModal: React.FC<ProposalModalProps> = ({
 
         {/* Header */}
         <div className="space-y-1.5 border-b border-[#1f4230] pb-4 pr-10">
-          <div className="inline-flex items-center gap-1.5 text-[10px] font-mono font-bold uppercase tracking-wider text-[#f3d38c] bg-[#e5b958]/15 px-2.5 py-0.5 rounded border border-[#e5b958]/35">
-            <ShieldCheck className="w-3.5 h-3.5 text-[#f3d38c]" />
+          <div className="inline-flex items-center gap-1.5 text-xs font-mono font-bold uppercase tracking-wider text-[#f3d38c] bg-[#e5b958]/15 px-2.5 py-1 rounded border border-[#e5b958]/35">
+            <ShieldCheck className="w-4 h-4 text-[#f3d38c]" />
             Official Proposal Request
           </div>
-          <h3 className="font-display text-2xl font-bold text-[#f2faf5]">
-            Submit Advisory Proposal Request
+          <h3 className="font-display text-3xl font-bold text-[#f2faf5]">
+            Submit Scope Proposal Request
           </h3>
-          <p className="text-xs text-[#b2c5b9]">
+          <p className="text-sm text-[#b2c5b9]">
             Review your customized scope proposal draft below and dispatch directly to Koh I-Lyn & Co.
           </p>
         </div>
 
         {/* Email Metadata */}
-        <div className="space-y-3 text-xs">
-          <div className="flex items-center justify-between p-3 rounded-xl bg-[#0e2117] border border-[#224835]">
+        <div className="space-y-3 text-sm">
+          <div className="flex items-center justify-between p-3.5 rounded-xl bg-[#0e2117] border border-[#224835]">
             <span className="text-[#b2c5b9] font-mono">Recipient:</span>
             <span className="text-[#f3d38c] font-mono font-bold">{proposalDetails.recipient}</span>
           </div>
 
           <div className="p-3.5 rounded-xl bg-[#0e2117] border border-[#224835] space-y-2">
-            <div className="flex items-center justify-between text-[#b2c5b9] font-mono text-[11px] pb-1 border-b border-[#1f4230]">
+            <div className="flex items-center justify-between text-[#b2c5b9] font-mono text-xs pb-1 border-b border-[#1f4230]">
               <span>Subject: {proposalDetails.subject}</span>
               <button
                 onClick={handleCopy}
-                className="inline-flex items-center gap-1 text-[#f3d38c] hover:text-[#ffffff] transition-colors font-sans text-xs"
+                className="inline-flex items-center gap-1 text-[#f3d38c] hover:text-[#ffffff] transition-colors font-sans text-xs font-bold"
               >
                 {copied ? (
                   <>
@@ -91,7 +91,7 @@ export const ProposalModal: React.FC<ProposalModalProps> = ({
             </div>
 
             {/* Email Body Content */}
-            <pre className="text-xs text-[#e2f1e8] font-sans whitespace-pre-wrap leading-relaxed max-h-48 overflow-y-auto pr-1 bg-[#091710] p-3 rounded-lg border border-[#1a3828]">
+            <pre className="text-sm text-[#e2f1e8] font-sans whitespace-pre-wrap leading-relaxed max-h-48 overflow-y-auto pr-1 bg-[#091710] p-3.5 rounded-lg border border-[#1a3828]">
               {proposalDetails.bodyText}
             </pre>
           </div>
@@ -99,7 +99,7 @@ export const ProposalModal: React.FC<ProposalModalProps> = ({
 
         {/* Action Buttons */}
         <div className="pt-2 space-y-3 border-t border-[#1f4230]">
-          <div className="text-[11px] font-mono text-[#b2c5b9] flex items-center justify-between">
+          <div className="text-xs font-mono text-[#b2c5b9] flex items-center justify-between">
             <span>Select preferred dispatch method:</span>
             {copied && <span className="text-emerald-400 font-bold">Text Copied!</span>}
           </div>
@@ -113,7 +113,7 @@ export const ProposalModal: React.FC<ProposalModalProps> = ({
               onClick={() => {
                 navigator.clipboard.writeText(proposalDetails.bodyText).catch(() => {});
               }}
-              className="py-3 px-3.5 rounded-xl text-xs font-bold gold-gradient-btn transition-all flex items-center justify-center gap-2 gold-glow"
+              className="py-3.5 px-3.5 rounded-xl text-sm font-bold gold-gradient-btn transition-all flex items-center justify-center gap-2 gold-glow"
             >
               <Send className="w-4 h-4 text-[#08150e]" />
               <span>Default Mail App</span>
@@ -129,7 +129,7 @@ export const ProposalModal: React.FC<ProposalModalProps> = ({
               )}`}
               target="_blank"
               rel="noopener noreferrer"
-              className="py-3 px-3.5 rounded-xl text-xs font-bold text-[#f2faf5] bg-[#1d4631] hover:bg-[#25573e] border border-[#e5b958]/40 transition-all flex items-center justify-center gap-2"
+              className="py-3.5 px-3.5 rounded-xl text-sm font-bold text-[#f2faf5] bg-[#1d4631] hover:bg-[#25573e] border border-[#e5b958]/40 transition-all flex items-center justify-center gap-2"
             >
               <Mail className="w-4 h-4 text-[#f3d38c]" />
               <span>Compose in Gmail</span>
@@ -145,7 +145,7 @@ export const ProposalModal: React.FC<ProposalModalProps> = ({
               )}`}
               target="_blank"
               rel="noopener noreferrer"
-              className="py-3 px-3.5 rounded-xl text-xs font-bold text-[#f2faf5] bg-[#1d4631] hover:bg-[#25573e] border border-[#90d0a7]/30 transition-all flex items-center justify-center gap-2"
+              className="py-3.5 px-3.5 rounded-xl text-sm font-bold text-[#f2faf5] bg-[#1d4631] hover:bg-[#25573e] border border-[#90d0a7]/30 transition-all flex items-center justify-center gap-2"
             >
               <Mail className="w-4 h-4 text-[#a8dadc]" />
               <span>Outlook Web</span>
@@ -155,7 +155,7 @@ export const ProposalModal: React.FC<ProposalModalProps> = ({
             {/* Instant Copy Proposal */}
             <button
               onClick={handleCopy}
-              className="py-3 px-3.5 rounded-xl text-xs font-bold text-[#f2faf5] bg-[#143122] hover:bg-[#1b402d] border border-[#90d0a7]/35 transition-all flex items-center justify-center gap-2"
+              className="py-3.5 px-3.5 rounded-xl text-sm font-bold text-[#f2faf5] bg-[#143122] hover:bg-[#1b402d] border border-[#90d0a7]/35 transition-all flex items-center justify-center gap-2"
             >
               {copied ? (
                 <>
