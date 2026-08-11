@@ -1,5 +1,5 @@
 import React from 'react';
-import { ShieldCheck, Mail, Linkedin, ArrowUp } from 'lucide-react';
+import { ShieldCheck, Mail, Linkedin, ArrowUp, Trees, TreePine } from 'lucide-react';
 
 export const Footer: React.FC = () => {
   const scrollToTop = () => {
@@ -7,8 +7,8 @@ export const Footer: React.FC = () => {
   };
 
   return (
-    <footer className="bg-[#05100a] border-t border-[#1f4230] text-[#b2c5b9] pt-16 pb-12 relative">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-12">
+    <footer className="bg-[#05100a] border-t border-[#1f4230] text-[#b2c5b9] pt-16 pb-12 relative overflow-hidden">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-12 relative z-10">
         
         <div className="grid grid-cols-1 md:grid-cols-12 gap-8 justify-between">
           
@@ -16,10 +16,11 @@ export const Footer: React.FC = () => {
           <div className="md:col-span-7 space-y-4">
             <div className="flex items-center gap-3">
               <div className="w-9 h-9 rounded-xl bg-[#1d4631] border border-[#e5b958]/40 flex items-center justify-center text-[#f3d38c]">
-                <ShieldCheck className="w-5 h-5 text-[#f3d38c]" />
+                <TreePine className="w-5 h-5 text-[#90d0a7]" />
               </div>
-              <span className="font-display text-2xl font-bold text-[#f2faf5]">
+              <span className="font-display text-2xl font-bold text-[#f2faf5] flex items-center gap-2">
                 Koh I-Lyn & Co
+                <Trees className="w-4 h-4 text-[#90d0a7]" />
               </span>
             </div>
 

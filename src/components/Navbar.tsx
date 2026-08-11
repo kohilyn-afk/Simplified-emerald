@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { ShieldCheck, Menu, X, ArrowUpRight, Layers, User, PhoneCall, Award } from 'lucide-react';
+import { ShieldCheck, Menu, X, ArrowUpRight, Layers, User, PhoneCall, Award, Trees, TreePine } from 'lucide-react';
 
 interface NavbarProps {
   onOpenContact: () => void;
@@ -22,15 +22,16 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenContact, activeSection }) 
           
           {/* Brand Logo & Credentials */}
           <a href="#" className="flex items-center gap-3 group">
-            <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-[#1e4632] to-[#11271b] border border-[#e5b958]/40 flex items-center justify-center text-[#e2f1e8] group-hover:border-[#e5b958] transition-all gold-glow-subtle">
-              <ShieldCheck className="w-5 h-5 text-[#f3d38c]" />
+            <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-[#1e4632] to-[#11271b] border border-[#e5b958]/40 flex items-center justify-center text-[#e2f1e8] group-hover:border-[#e5b958] transition-all gold-glow-subtle relative overflow-hidden">
+              <TreePine className="w-5 h-5 text-[#90d0a7] group-hover:scale-110 transition-transform" />
             </div>
             <div>
               <div className="flex items-center gap-2">
                 <span className="font-display text-2xl font-bold tracking-tight text-[#f2faf5]">
                   Koh I-Lyn & Co
                 </span>
-                <span className="text-xs uppercase font-mono px-1.5 py-0.5 rounded border border-[#e5b958]/40 text-[#f3d38c] bg-[#e5b958]/10 font-bold">
+                <span className="text-xs uppercase font-mono px-1.5 py-0.5 rounded border border-[#e5b958]/40 text-[#f3d38c] bg-[#e5b958]/10 font-bold flex items-center gap-1">
+                  <Trees className="w-3 h-3 text-[#90d0a7]" />
                   Practice
                 </span>
               </div>

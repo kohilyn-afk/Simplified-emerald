@@ -152,7 +152,7 @@ export const ScopePlanner: React.FC<ScopePlannerProps> = ({ initialSelectedId, o
             </div>
 
             <p className="text-xs text-[#b2c5b9] leading-tight">
-              • Includes direct CA(M) & Oxford Certified Sustainable Corporations Expert oversight, analytics verification trails, and custom pipeline implementation.
+              • Includes direct executive oversight, analytics verification trails, and custom pipeline implementation.
             </p>
 
             {/* Action Buttons */}

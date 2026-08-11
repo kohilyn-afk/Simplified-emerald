@@ -1,6 +1,7 @@
 import React from 'react';
-import { User, CheckCircle2, ShieldCheck, Linkedin, Award, Compass, ArrowUpRight } from 'lucide-react';
+import { User, CheckCircle2, ShieldCheck, Linkedin, Award, Compass, ArrowUpRight, Trees, TreePine } from 'lucide-react';
 import { KOHILYN_CREDENTIALS } from '../data/siteData';
+import { CornerTreeAccent } from './TreeSilhouettes';
 
 interface AboutSectionProps {
   onOpenContact?: () => void;
@@ -8,21 +9,24 @@ interface AboutSectionProps {
 
 export const AboutSection: React.FC<AboutSectionProps> = () => {
   return (
-    <section id="about" className="py-20 border-b border-[#1f4230] relative">
+    <section id="about" className="py-20 border-b border-[#1f4230] relative overflow-hidden">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
           
           {/* Profile Card / Badges */}
           <div className="lg:col-span-5 forest-card rounded-2xl p-8 border border-[#e5b958]/35 space-y-6 relative overflow-hidden">
+            <CornerTreeAccent className="absolute top-2 right-2 opacity-15" />
+            
             <div className="flex items-center gap-4">
               <div>
-                <h3 className="font-display text-3xl font-bold text-[#f2faf5]">Koh I-Lyn</h3>
-                <p className="text-sm text-[#f3d38c] font-mono font-bold mt-0.5">
-                  FCCA • CA(M) • BA(Hons) UK • Oxford Certified
-                </p>
-                <div className="text-xs text-[#90d0a7] mt-1 font-medium">
-                  Independent C-Suite & Board Specialist
+                <h3 className="font-display text-3xl font-bold text-[#f2faf5] flex items-center gap-2">
+                  Koh I-Lyn
+                  <TreePine className="w-5 h-5 text-[#90d0a7]" />
+                </h3>
+                <div className="text-xs text-[#90d0a7] mt-1 font-medium flex items-center gap-1.5">
+                  <Trees className="w-3.5 h-3.5 text-[#90d0a7]" />
+                  <span>Independent C-Suite & Board Specialist</span>
                 </div>
               </div>
             </div>
@@ -72,7 +76,10 @@ export const AboutSection: React.FC<AboutSectionProps> = () => {
 
             <div className="space-y-4 text-base sm:text-lg text-[#c3d7cb] leading-relaxed font-sans">
               <p className="border-l-2 border-[#e5b958] pl-4 text-[#f2faf5] font-medium">
-                Bringing extensive audit experience with multinational industries since 2015 across multiple jurisdictions, I work directly with C-Suites and Board Directors to bridge the gap between environmental sustainability mandates and financial accounting controls. You receive direct, high-level strategic counsel and precise technical execution.
+                I am a chartered accounting professional with cross-border experience spanning audit, assurance, financial reporting, and corporate finance across Malaysia and New Zealand, including relocating to New Zealand on a company-sponsored visa. I&apos;ve continued to broaden my perspective through executive education focused on sustainable corporate leadership, global economic policy, and international affairs, reflecting my belief that professionals today need to understand the wider forces — climate, geopolitics, governance — shaping the organizations they serve.
+              </p>
+              <p className="text-[#c3d7cb]">
+                During my time at PwC, I gained extensive experience auditing multinational and large corporate clients, such as Bosch and Mattel. My work involved delivering high-quality financial audits, collaborating with cross-functional teams, and developing a strong understanding of complex business operations and financial reporting requirements. In addition to my audit responsibilities, I have championed the fusion of data analytics with traditional audit practice — improving audit quality, efficiency and insights.
               </p>
             </div>
 

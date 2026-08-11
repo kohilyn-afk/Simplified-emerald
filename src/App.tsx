@@ -7,6 +7,7 @@ import { Footer } from './components/Footer';
 import { ServiceModal } from './components/ServiceModal';
 import { ProposalModal } from './components/ProposalModal';
 import { ServiceItem } from './types';
+import { TreeSectionDivider } from './components/TreeSilhouettes';
 
 export default function App() {
   const [selectedService, setSelectedService] = useState<ServiceItem | null>(null);
@@ -64,11 +65,21 @@ export default function App() {
         {/* Hero Section */}
         <Hero />
 
+        {/* Tree Divider */}
+        <div className="max-w-7xl mx-auto px-4 py-2">
+          <TreeSectionDivider label="Executive Scope Planner • C-Suite Engagement" />
+        </div>
+
         {/* Custom Scope Planner */}
         <ScopePlanner
           initialSelectedId={plannerPresetServiceId}
           onOpenContactWithScope={handleRequestScopeProposalEmail}
         />
+
+        {/* Tree Divider */}
+        <div className="max-w-7xl mx-auto px-4 py-2">
+          <TreeSectionDivider label="Independent Practice • Oxford Certified" />
+        </div>
 
         {/* About Koh I-Lyn */}
         <AboutSection />
