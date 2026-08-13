@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { ShieldCheck, Menu, X, ArrowUpRight, Layers, User, PhoneCall, Award, Trees, TreePine } from 'lucide-react';
+import { VisitorCounter } from './VisitorCounter';
 
 interface NavbarProps {
   onOpenContact: () => void;
@@ -42,25 +43,29 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenContact, activeSection }) 
           </a>
 
           {/* Desktop Navigation Links */}
-          <nav className="hidden lg:flex items-center gap-1 xl:gap-2">
-            {navLinks.map((link) => {
-              const Icon = link.icon;
-              return (
-                <a
-                  key={link.name}
-                  href={link.href}
-                  className="flex items-center gap-1.5 px-3 py-2 rounded-lg text-sm font-semibold text-[#b2c5b9] hover:text-[#f2faf5] hover:bg-[#143122] transition-all"
-                >
-                  <Icon className="w-4 h-4 text-[#90d0a7]" />
-                  <span>{link.name}</span>
-                  {link.badge && (
-                    <span className="text-xs font-mono px-1.5 py-0.5 rounded bg-[#e5b958]/20 text-[#f3d38c] border border-[#e5b958]/35 font-bold">
-                      {link.badge}
-                    </span>
-                  )}
-                </a>
-              );
-            })}
+          <nav className="hidden lg:flex items-center gap-3 xl:gap-4">
+            <VisitorCounter variant="compact" />
+
+            <div className="flex items-center gap-1 xl:gap-2">
+              {navLinks.map((link) => {
+                const Icon = link.icon;
+                return (
+                  <a
+                    key={link.name}
+                    href={link.href}
+                    className="flex items-center gap-1.5 px-3 py-2 rounded-lg text-sm font-semibold text-[#b2c5b9] hover:text-[#f2faf5] hover:bg-[#143122] transition-all"
+                  >
+                    <Icon className="w-4 h-4 text-[#90d0a7]" />
+                    <span>{link.name}</span>
+                    {link.badge && (
+                      <span className="text-xs font-mono px-1.5 py-0.5 rounded bg-[#e5b958]/20 text-[#f3d38c] border border-[#e5b958]/35 font-bold">
+                        {link.badge}
+                      </span>
+                    )}
+                  </a>
+                );
+              })}
+            </div>
           </nav>
 
           {/* Mobile menu button */}

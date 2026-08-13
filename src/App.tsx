@@ -6,6 +6,7 @@ import { AboutSection } from './components/AboutSection';
 import { Footer } from './components/Footer';
 import { ServiceModal } from './components/ServiceModal';
 import { ProposalModal } from './components/ProposalModal';
+import { VisitorChatbox } from './components/VisitorChatbox';
 import { ServiceItem } from './types';
 import { TreeSectionDivider } from './components/TreeSilhouettes';
 
@@ -106,6 +107,15 @@ export default function App() {
           subject: proposalModalState.subject,
           bodyText: proposalModalState.bodyText,
           recipient: proposalModalState.recipient,
+        }}
+      />
+
+      {/* Visitor AI Advisory Chatbox */}
+      <VisitorChatbox
+        onOpenProposalModal={(topic) => handleOpenContactWithTopic(topic)}
+        onScrollToScopePlanner={() => {
+          const el = document.getElementById('scope-planner');
+          if (el) el.scrollIntoView({ behavior: 'smooth' });
         }}
       />
 
