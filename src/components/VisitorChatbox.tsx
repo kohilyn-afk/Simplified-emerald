@@ -1,7 +1,6 @@
 import React, { useState, useRef, useEffect } from 'react';
-import { MessageSquare, X, Send, Bot, User, Sparkles, ArrowRight, Minimize2, Trash2, ShieldCheck, ExternalLink } from 'lucide-react';
+import { MessageSquare, X, Send, Bot, Sparkles, ArrowRight, Minimize2, Trash2, ShieldCheck, ExternalLink } from 'lucide-react';
 import { motion, AnimatePresence } from 'motion/react';
-import { TreeSectionDivider } from './TreeSilhouettes';
 
 interface Message {
   id: string;
@@ -136,28 +135,28 @@ export const VisitorChatbox: React.FC<VisitorChatboxProps> = ({
             animate={{ opacity: 1, scale: 1, y: 0 }}
             exit={{ opacity: 0, scale: 0.95, y: 20 }}
             transition={{ duration: 0.25, ease: 'easeOut' }}
-            className="pointer-events-auto w-[calc(100vw-2.5rem)] sm:w-[410px] h-[550px] max-h-[82vh] bg-[#0c2117] border border-[#e5b958]/30 rounded-2xl shadow-2xl flex flex-col overflow-hidden mb-3 backdrop-blur-md relative"
+            className="pointer-events-auto w-[calc(100vw-2.5rem)] sm:w-[410px] h-[550px] max-h-[82vh] bg-[#ffffff] border border-[#d4af37]/60 rounded-2xl shadow-[0_20px_50px_rgba(212,175,55,0.22)] flex flex-col overflow-hidden mb-3 backdrop-blur-md relative"
           >
             {/* Header */}
-            <div className="bg-gradient-to-r from-[#112d1f] via-[#143625] to-[#0d2318] p-4 border-b border-[#1f4a33] flex items-center justify-between relative">
+            <div className="bg-gradient-to-r from-[#ffffff] via-[#fdf6e7] to-[#faedd0] p-4 border-b border-[#ebd7a7] flex items-center justify-between relative shadow-2xs">
               <div className="flex items-center gap-3">
                 <div className="relative">
-                  <div className="w-10 h-10 rounded-xl bg-[#1c4832] border border-[#e5b958]/50 flex items-center justify-center text-[#90d0a7] shadow-inner">
-                    <Bot className="w-5 h-5 text-[#f3d38c]" />
+                  <div className="w-10 h-10 rounded-xl bg-[#ffffff] border border-[#d4af37]/70 flex items-center justify-center text-[#825e0e] shadow-sm">
+                    <Bot className="w-5 h-5 text-[#cba135]" />
                   </div>
-                  <span className="absolute -bottom-0.5 -right-0.5 w-3 h-3 rounded-full bg-[#34d399] border-2 border-[#0c2117]" />
+                  <span className="absolute -bottom-0.5 -right-0.5 w-3 h-3 rounded-full bg-[#cba135] border-2 border-[#ffffff]" />
                 </div>
                 <div>
                   <div className="flex items-center gap-1.5">
-                    <h3 className="font-display font-bold text-sm text-[#f2faf5]">
+                    <h3 className="font-display font-bold text-sm text-[#1c1917]">
                       Koh I-Lyn Advisory AI
                     </h3>
-                    <span className="text-[10px] font-mono px-1.5 py-0.2 rounded bg-[#e5b958]/15 text-[#f3d38c] border border-[#e5b958]/30 font-semibold">
+                    <span className="text-[10px] font-mono px-1.5 py-0.2 rounded bg-[#faedd0] text-[#7a5910] border border-[#edd59b] font-semibold">
                       Gemini 3.6
                     </span>
                   </div>
-                  <p className="text-[11px] text-[#90d0a7] flex items-center gap-1">
-                    <ShieldCheck className="w-3 h-3 text-[#34d399]" />
+                  <p className="text-[11px] text-[#786a59] flex items-center gap-1">
+                    <ShieldCheck className="w-3 h-3 text-[#cba135]" />
                     <span>FCCA & Sustainability Concierge</span>
                   </p>
                 </div>
@@ -167,14 +166,14 @@ export const VisitorChatbox: React.FC<VisitorChatboxProps> = ({
                 <button
                   onClick={handleClearHistory}
                   title="Clear Conversation"
-                  className="p-1.5 rounded-lg text-[#90d0a7]/70 hover:text-[#f3d38c] hover:bg-[#1a402d] transition-colors"
+                  className="p-1.5 rounded-lg text-[#8a7b69] hover:text-[#825e0e] hover:bg-[#f5e9d2] transition-colors cursor-pointer"
                 >
                   <Trash2 className="w-4 h-4" />
                 </button>
                 <button
                   onClick={() => setIsOpen(false)}
                   title="Minimize Chat"
-                  className="p-1.5 rounded-lg text-[#90d0a7] hover:text-[#f2faf5] hover:bg-[#1a402d] transition-colors"
+                  className="p-1.5 rounded-lg text-[#8a7b69] hover:text-[#1c1917] hover:bg-[#f5e9d2] transition-colors cursor-pointer"
                 >
                   <Minimize2 className="w-4 h-4" />
                 </button>
@@ -182,13 +181,13 @@ export const VisitorChatbox: React.FC<VisitorChatboxProps> = ({
             </div>
 
             {/* Messages Body */}
-            <div className="flex-1 overflow-y-auto p-4 space-y-3.5 custom-scrollbar bg-[#091710]/80">
+            <div className="flex-1 overflow-y-auto p-4 space-y-3.5 custom-scrollbar bg-[#fdfbf7]">
               
               {/* Privacy/Greeting Notice */}
-              <div className="bg-[#122e20]/60 border border-[#1f4d36] rounded-xl p-3 text-[11px] text-[#a3c9b3] flex items-start gap-2.5">
-                <Sparkles className="w-4 h-4 text-[#e5b958] shrink-0 mt-0.5" />
+              <div className="bg-[#ffffff] border border-[#ebd7a7] rounded-xl p-3 text-[11px] text-[#554c41] flex items-start gap-2.5 shadow-2xs">
+                <Sparkles className="w-4 h-4 text-[#cba135] shrink-0 mt-0.5" />
                 <div>
-                  <span className="font-bold text-[#f2faf5]">C-Suite Executive AI Assistant:</span> Ask about Bursa ESG reporting, MFRS accounting standards, TNB utility invoice OCR, or custom advisory engagements.
+                  <span className="font-bold text-[#1c1917]">C-Suite Executive AI Assistant:</span> Ask about Bursa ESG reporting, MFRS accounting standards, TNB utility invoice OCR, or custom advisory engagements.
                 </div>
               </div>
 
@@ -200,7 +199,7 @@ export const VisitorChatbox: React.FC<VisitorChatboxProps> = ({
                   }`}
                 >
                   <div className="flex items-center gap-1.5 mb-1 px-1">
-                    <span className="text-[10px] font-mono text-[#78a58a]">
+                    <span className="text-[10px] font-mono text-[#8a7b69]">
                       {msg.role === 'user' ? 'You' : 'Advisory AI'} • {msg.timestamp}
                     </span>
                   </div>
@@ -208,22 +207,22 @@ export const VisitorChatbox: React.FC<VisitorChatboxProps> = ({
                   <div
                     className={`max-w-[85%] rounded-2xl p-3.5 text-xs leading-relaxed shadow-sm ${
                       msg.role === 'user'
-                        ? 'bg-gradient-to-r from-[#1d4832] to-[#153a27] text-[#f2faf5] border border-[#2b6144] rounded-tr-none'
-                        : 'bg-[#10271c] text-[#e2f1e8] border border-[#1e4632] rounded-tl-none relative group'
+                        ? 'bg-gradient-to-r from-[#fbf2dc] to-[#f5e2b7] text-[#1c1917] border border-[#e8ce90] rounded-tr-none font-medium'
+                        : 'bg-[#ffffff] text-[#2c261e] border border-[#ebd8b0] rounded-tl-none relative group'
                     }`}
                   >
                     <p className="whitespace-pre-wrap">{msg.content}</p>
 
                     {/* Action buttons embedded in assistant replies */}
                     {msg.role === 'assistant' && (
-                      <div className="mt-3 pt-2.5 border-t border-[#1a3d2a] flex flex-wrap gap-2">
+                      <div className="mt-3 pt-2.5 border-t border-[#ebd8b0] flex flex-wrap gap-2">
                         {onOpenProposalModal && (
                           <button
                             onClick={() => onOpenProposalModal('Inquiry via Visitor AI Chat')}
-                            className="text-[11px] font-medium px-2.5 py-1 rounded-md bg-[#e5b958]/15 hover:bg-[#e5b958]/25 text-[#f3d38c] border border-[#e5b958]/40 flex items-center gap-1.5 transition-all"
+                            className="text-[11px] font-medium px-2.5 py-1 rounded-md bg-[#fcf5e3] hover:bg-[#faedd0] text-[#7a5910] border border-[#edd59b] flex items-center gap-1.5 transition-all cursor-pointer"
                           >
                             <span>Request Proposal</span>
-                            <ArrowRight className="w-3 h-3" />
+                            <ArrowRight className="w-3 h-3 text-[#cba135]" />
                           </button>
                         )}
                         {onScrollToScopePlanner && (
@@ -232,10 +231,10 @@ export const VisitorChatbox: React.FC<VisitorChatboxProps> = ({
                               onScrollToScopePlanner();
                               setIsOpen(false);
                             }}
-                            className="text-[11px] font-medium px-2.5 py-1 rounded-md bg-[#183d2a] hover:bg-[#204f37] text-[#90d0a7] border border-[#27593e] flex items-center gap-1.5 transition-all"
+                            className="text-[11px] font-medium px-2.5 py-1 rounded-md bg-[#ffffff] hover:bg-[#faf4e6] text-[#6a4f12] border border-[#e5cb87] flex items-center gap-1.5 transition-all cursor-pointer"
                           >
                             <span>Scope Planner</span>
-                            <ExternalLink className="w-3 h-3" />
+                            <ExternalLink className="w-3 h-3 text-[#cba135]" />
                           </button>
                         )}
                       </div>
@@ -246,13 +245,13 @@ export const VisitorChatbox: React.FC<VisitorChatboxProps> = ({
 
               {/* Typing indicator */}
               {isLoading && (
-                <div className="flex items-center gap-2 text-xs text-[#90d0a7] bg-[#10271c] p-3 rounded-2xl border border-[#1e4632] w-fit">
-                  <Bot className="w-4 h-4 text-[#f3d38c] animate-pulse" />
+                <div className="flex items-center gap-2 text-xs text-[#825e0e] bg-[#ffffff] p-3 rounded-2xl border border-[#ebd8b0] w-fit shadow-2xs">
+                  <Bot className="w-4 h-4 text-[#cba135] animate-pulse" />
                   <span className="font-mono text-[11px]">Koh I-Lyn AI is analyzing...</span>
                   <span className="flex gap-1 items-center">
-                    <span className="w-1.5 h-1.5 rounded-full bg-[#90d0a7] animate-bounce" />
-                    <span className="w-1.5 h-1.5 rounded-full bg-[#90d0a7] animate-bounce [animation-delay:0.2s]" />
-                    <span className="w-1.5 h-1.5 rounded-full bg-[#90d0a7] animate-bounce [animation-delay:0.4s]" />
+                    <span className="w-1.5 h-1.5 rounded-full bg-[#cba135] animate-bounce" />
+                    <span className="w-1.5 h-1.5 rounded-full bg-[#cba135] animate-bounce [animation-delay:0.2s]" />
+                    <span className="w-1.5 h-1.5 rounded-full bg-[#cba135] animate-bounce [animation-delay:0.4s]" />
                   </span>
                 </div>
               )}
@@ -262,8 +261,8 @@ export const VisitorChatbox: React.FC<VisitorChatboxProps> = ({
 
             {/* Quick Prompt Suggestions */}
             {messages.length <= 3 && (
-              <div className="p-3 bg-[#0c2117] border-t border-[#1f4a33] space-y-1.5">
-                <span className="text-[10px] font-mono text-[#90d0a7] font-semibold uppercase tracking-wider block">
+              <div className="p-3 bg-[#ffffff] border-t border-[#ebd8b0] space-y-1.5">
+                <span className="text-[10px] font-mono text-[#825e0e] font-semibold uppercase tracking-wider block">
                   Suggested Enquiries:
                 </span>
                 <div className="flex flex-wrap gap-1.5">
@@ -272,7 +271,7 @@ export const VisitorChatbox: React.FC<VisitorChatboxProps> = ({
                       key={idx}
                       onClick={() => handleSendMessage(suggestion)}
                       disabled={isLoading}
-                      className="text-[11px] text-[#c3e3d0] bg-[#122e20] hover:bg-[#1a3d2c] border border-[#235239] hover:border-[#e5b958]/40 px-2.5 py-1 rounded-lg text-left transition-all duration-150 disabled:opacity-50"
+                      className="text-[11px] text-[#4a4237] bg-[#fbf6ec] hover:bg-[#faeed3] border border-[#ebd7a7] hover:border-[#cba135] px-2.5 py-1 rounded-lg text-left transition-all duration-150 disabled:opacity-50 cursor-pointer"
                     >
                       {suggestion}
                     </button>
@@ -282,7 +281,7 @@ export const VisitorChatbox: React.FC<VisitorChatboxProps> = ({
             )}
 
             {/* Input Footer */}
-            <div className="p-3 bg-[#0a1e14] border-t border-[#1f4a33]">
+            <div className="p-3 bg-[#fdfaf4] border-t border-[#ebd7a7]">
               <form
                 onSubmit={(e) => {
                   e.preventDefault();
@@ -296,17 +295,17 @@ export const VisitorChatbox: React.FC<VisitorChatboxProps> = ({
                   onChange={(e) => setInputMessage(e.target.value)}
                   placeholder="Ask Koh I-Lyn AI..."
                   disabled={isLoading}
-                  className="flex-1 bg-[#122c1f] border border-[#235239] rounded-xl px-3.5 py-2 text-xs text-[#f2faf5] placeholder-[#6b967e] focus:outline-none focus:border-[#e5b958] transition-colors disabled:opacity-50"
+                  className="flex-1 bg-[#ffffff] border border-[#ebd8b0] rounded-xl px-3.5 py-2 text-xs text-[#1c1917] placeholder-[#9a8c7b] focus:outline-none focus:border-[#cba135] focus:ring-1 focus:ring-[#cba135] transition-colors disabled:opacity-50"
                 />
                 <button
                   type="submit"
                   disabled={!inputMessage.trim() || isLoading}
-                  className="w-9 h-9 rounded-xl bg-gradient-to-r from-[#1d4832] to-[#153a27] border border-[#e5b958]/50 hover:border-[#e5b958] text-[#f3d38c] flex items-center justify-center transition-all disabled:opacity-40 disabled:cursor-not-allowed shrink-0"
+                  className="w-9 h-9 rounded-xl gold-gradient-btn flex items-center justify-center transition-all disabled:opacity-40 disabled:cursor-not-allowed shrink-0 cursor-pointer"
                 >
-                  <Send className="w-4 h-4" />
+                  <Send className="w-4 h-4 text-[#1a1506]" />
                 </button>
               </form>
-              <div className="mt-2 text-center text-[10px] text-[#5d856d] font-mono">
+              <div className="mt-2 text-center text-[10px] text-[#8a7b69] font-mono">
                 Powered by Gemini 3.6 Flash • Koh I-Lyn & Co Advisory
               </div>
             </div>
@@ -319,26 +318,26 @@ export const VisitorChatbox: React.FC<VisitorChatboxProps> = ({
         onClick={() => setIsOpen(!isOpen)}
         whileHover={{ scale: 1.05 }}
         whileTap={{ scale: 0.95 }}
-        className="pointer-events-auto relative group flex items-center gap-2.5 px-4 py-3 rounded-full bg-gradient-to-r from-[#0e2a1d] via-[#143c29] to-[#0c2317] border border-[#e5b958]/60 text-[#f2faf5] shadow-2xl gold-glow hover:border-[#e5b958] transition-all"
+        className="pointer-events-auto relative group flex items-center gap-2.5 px-4 py-3 rounded-full bg-gradient-to-r from-[#ffffff] via-[#fefaf0] to-[#fbf2de] border border-[#d4af37]/80 text-[#1c1917] shadow-xl hover:border-[#b88a1b] transition-all cursor-pointer"
       >
         {/* Unread / Pulse Indicator */}
         {hasUnread && !isOpen && (
           <span className="absolute -top-1 -right-1 flex h-3.5 w-3.5">
-            <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-[#e5b958] opacity-75" />
-            <span className="relative inline-flex rounded-full h-3.5 w-3.5 bg-[#e5b958]" />
+            <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-[#cba135] opacity-75" />
+            <span className="relative inline-flex rounded-full h-3.5 w-3.5 bg-[#cba135]" />
           </span>
         )}
 
-        <div className="w-7 h-7 rounded-full bg-[#1b432e] border border-[#e5b958]/40 flex items-center justify-center text-[#f3d38c]">
-          {isOpen ? <X className="w-4 h-4" /> : <MessageSquare className="w-4 h-4" />}
+        <div className="w-7 h-7 rounded-full bg-[#ffffff] border border-[#d4af37]/60 flex items-center justify-center text-[#825e0e] shadow-2xs">
+          {isOpen ? <X className="w-4 h-4 text-[#cba135]" /> : <MessageSquare className="w-4 h-4 text-[#cba135]" />}
         </div>
 
         <div className="text-left hidden sm:block">
-          <div className="text-xs font-display font-bold text-[#f2faf5] flex items-center gap-1.5">
+          <div className="text-xs font-display font-bold text-[#1c1917] flex items-center gap-1.5">
             <span>Visitor Advisory Chat</span>
-            <span className="w-2 h-2 rounded-full bg-[#34d399] animate-pulse" />
+            <span className="w-2 h-2 rounded-full bg-[#cba135] animate-pulse" />
           </div>
-          <div className="text-[10px] text-[#90d0a7] font-mono">Ask Koh I-Lyn AI</div>
+          <div className="text-[10px] text-[#825e0e] font-mono">Ask Koh I-Lyn AI</div>
         </div>
       </motion.button>
 

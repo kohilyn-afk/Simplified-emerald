@@ -4,121 +4,114 @@ import { Hero } from './components/Hero';
 import { ScopePlanner } from './components/ScopePlanner';
 import { AboutSection } from './components/AboutSection';
 import { Footer } from './components/Footer';
+import { VisitorChatbox } from './components/VisitorChatbox';
 import { ServiceModal } from './components/ServiceModal';
 import { ProposalModal } from './components/ProposalModal';
-import { VisitorChatbox } from './components/VisitorChatbox';
+import { GoldSectionDivider } from './components/GoldAccents';
 import { ServiceItem } from './types';
-import { TreeSectionDivider } from './components/TreeSilhouettes';
+import { SERVICE_ITEMS } from './data/siteData';
 
-export default function App() {
-  const [selectedService, setSelectedService] = useState<ServiceItem | null>(null);
-  const [plannerPresetServiceId, setPlannerPresetServiceId] = useState<string | undefined>(undefined);
-
-  const [proposalModalState, setProposalModalState] = useState<{
-    isOpen: boolean;
-    subject: string;
-    bodyText: string;
-    recipient: string;
-  }>({
-    isOpen: false,
-    subject: '',
+export function App() {
+  const [activeServiceModal, setActiveServiceModal] = useState<ServiceItem | null>(null);
+  const [proposalModalOpen, setProposalModalOpen] = useState(false);
+  const [proposalDetails, setProposalDetails] = useState({
+    subject: 'Official Advisory Proposal Request - Koh I-Lyn & Co.',
     bodyText: '',
     recipient: 'connect@kohilyn.com',
   });
 
-  const handleOpenContactWithTopic = (topic: string) => {
-    setProposalModalState({
-      isOpen: true,
-      subject: `C-Suite Discussion - ${topic}`,
-      bodyText: `Hello Koh I-Lyn,\n\nI would like to initiate a confidential discussion regarding:\n${topic}\n\nPlease reach out to schedule an initial consultation.\n\nThank you.`,
+  const handleOpenProposalModalWithTopic = (topic: string) => {
+    const emailBody = `Hello Koh I-Lyn,\r\n\r\nI am writing to inquire regarding your advisory practice on the following topic:\r\n\r\nTopic: ${topic}\r\n\r\nPlease send over further information or schedule an initial consultation.\r\n\r\nThank you.`;
+    setProposalDetails({
+      subject: `Advisory Inquiry: ${topic} - Koh I-Lyn & Co.`,
+      bodyText: emailBody,
       recipient: 'connect@kohilyn.com',
     });
+    setProposalModalOpen(true);
   };
 
-  const handleRequestScopeProposalEmail = (scopeSummary: string) => {
-    setProposalModalState({
-      isOpen: true,
+  const handleOpenContactWithScope = (scopeSummary: string) => {
+    const emailBody = `Hello Koh I-Lyn,\r\n\r\nI would like to request an official proposal for the following selected scope:\r\n\r\n${scopeSummary}\r\n\r\nPlease reach out to me to schedule an initial consultation.\r\n\r\nThank you.`;
+    setProposalDetails({
       subject: 'Official Scope Proposal Request - Koh I-Lyn & Co.',
-      bodyText: `Hello Koh I-Lyn,\n\nI would like to request an official proposal for the following selected scope:\n\n${scopeSummary}\n\nPlease reach out to me to schedule an initial consultation.\n\nThank you.`,
+      bodyText: emailBody,
       recipient: 'connect@kohilyn.com',
     });
+    setProposalModalOpen(true);
   };
 
-  const handleOpenPlannerWithService = (serviceId: string) => {
-    setPlannerPresetServiceId(serviceId);
-    const el = document.getElementById('scope-planner');
-    if (el) {
-      el.scrollIntoView({ behavior: 'smooth' });
+  const handleScrollToScopePlanner = () => {
+    const elem = document.getElementById('scope-planner');
+    if (elem) {
+      elem.scrollIntoView({ behavior: 'smooth' });
     }
   };
 
   return (
-    <div className="min-h-screen bg-[#091710] text-[#e2f1e8] font-sans forest-bg-mesh">
+    <div className="min-h-screen bg-[#fcfbf8] text-[#1c1917] white-gold-mesh flex flex-col selection:bg-[#edd89a] selection:text-[#5a420b]">
       
-      {/* Navbar */}
+      {/* Top Navbar */}
       <Navbar
-        onOpenContact={() => handleOpenContactWithTopic('General C-Suite Inquiry')}
+        onOpenContact={() => handleOpenProposalModalWithTopic('General Advisory Consultation')}
         activeSection="home"
       />
 
-      {/* Main Content Sections */}
-      <main>
-        {/* Hero Section */}
+      {/* Main Content Area */}
+      <main className="flex-1">
+        
+        {/* 1. Hero Section */}
         <Hero />
 
-        {/* Tree Divider */}
-        <div className="max-w-7xl mx-auto px-4 py-2">
-          <TreeSectionDivider label="Executive Scope Planner • C-Suite Engagement" />
-        </div>
+        {/* Minimalist Gold Section Divider */}
+        <GoldSectionDivider label="Sustainability • Accounting • Advisory" />
 
-        {/* Custom Scope Planner */}
+        {/* 2. Interactive Scope Planner */}
         <ScopePlanner
-          initialSelectedId={plannerPresetServiceId}
-          onOpenContactWithScope={handleRequestScopeProposalEmail}
+          onOpenContactWithScope={handleOpenContactWithScope}
         />
 
-        {/* Tree Divider */}
-        <div className="max-w-7xl mx-auto px-4 py-2">
-          <TreeSectionDivider label="Independent Practice • Oxford Certified" />
-        </div>
+        {/* Minimalist Gold Section Divider */}
+        <GoldSectionDivider label="Executive Qualifications • Professional Accreditations" />
 
-        {/* About Koh I-Lyn */}
-        <AboutSection />
+        {/* 3. About Section */}
+        <AboutSection
+          onOpenContact={() => handleOpenProposalModalWithTopic('Executive Advisory Engagement')}
+        />
+
       </main>
 
       {/* Footer */}
       <Footer />
 
-      {/* Service Modal */}
-      {selectedService && (
-        <ServiceModal
-          service={selectedService}
-          onClose={() => setSelectedService(null)}
-          onSelectInPlanner={(serviceId) => handleOpenPlannerWithService(serviceId)}
-          onBookCall={() => handleOpenContactWithTopic(`Inquiry regarding ${selectedService.title}`)}
-        />
-      )}
+      {/* Floating AI Chatbox */}
+      <VisitorChatbox
+        onOpenProposalModal={handleOpenProposalModalWithTopic}
+        onScrollToScopePlanner={handleScrollToScopePlanner}
+      />
 
-      {/* Proposal Request Modal */}
-      <ProposalModal
-        isOpen={proposalModalState.isOpen}
-        onClose={() => setProposalModalState((prev) => ({ ...prev, isOpen: false }))}
-        proposalDetails={{
-          subject: proposalModalState.subject,
-          bodyText: proposalModalState.bodyText,
-          recipient: proposalModalState.recipient,
+      {/* Service Detail Modal */}
+      <ServiceModal
+        service={activeServiceModal}
+        onClose={() => setActiveServiceModal(null)}
+        onSelectInPlanner={(serviceId) => {
+          handleScrollToScopePlanner();
+        }}
+        onBookCall={() => {
+          if (activeServiceModal) {
+            handleOpenProposalModalWithTopic(activeServiceModal.title);
+          }
         }}
       />
 
-      {/* Visitor AI Advisory Chatbox */}
-      <VisitorChatbox
-        onOpenProposalModal={(topic) => handleOpenContactWithTopic(topic)}
-        onScrollToScopePlanner={() => {
-          const el = document.getElementById('scope-planner');
-          if (el) el.scrollIntoView({ behavior: 'smooth' });
-        }}
+      {/* Proposal Modal */}
+      <ProposalModal
+        isOpen={proposalModalOpen}
+        onClose={() => setProposalModalOpen(false)}
+        proposalDetails={proposalDetails}
       />
 
     </div>
   );
 }
+
+export default App;

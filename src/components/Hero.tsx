@@ -1,34 +1,40 @@
 import React from 'react';
-import { CheckCircle2 } from 'lucide-react';
+import { CheckCircle2, Award, Sparkles } from 'lucide-react';
 import { KOHILYN_CREDENTIALS } from '../data/siteData';
-import { HeroTreeSilhouette } from './TreeSilhouettes';
 
 export const Hero: React.FC = () => {
   return (
-    <section className="relative overflow-hidden pt-12 pb-24 lg:pt-20 lg:pb-32 border-b border-[#1f4230]">
-      {/* Background Mesh Lighting with Pastel Forest Green and Gold Hues */}
-      <div className="absolute inset-0 pointer-events-none opacity-50">
-        <div className="absolute top-1/4 left-1/2 -translate-x-1/2 w-[650px] h-[380px] bg-[#295b43]/30 blur-[130px] rounded-full" />
-        <div className="absolute top-10 right-10 w-[350px] h-[350px] bg-[#e5b958]/15 blur-[110px] rounded-full" />
-        <div className="absolute bottom-10 left-10 w-[300px] h-[300px] bg-[#90d0a7]/10 blur-[100px] rounded-full" />
+    <section className="relative overflow-hidden pt-12 pb-16 lg:pt-20 lg:pb-24 border-b border-[#ebd7a7]">
+      {/* Background Mesh Lighting with Pearl White & Champagne Gold Hues */}
+      <div className="absolute inset-0 pointer-events-none opacity-70">
+        <div className="absolute top-1/4 left-1/2 -translate-x-1/2 w-[700px] h-[400px] bg-[#f7e6bd]/45 blur-[130px] rounded-full" />
+        <div className="absolute top-10 right-10 w-[400px] h-[400px] bg-[#edd395]/40 blur-[110px] rounded-full" />
+        <div className="absolute bottom-10 left-10 w-[350px] h-[350px] bg-[#faecd0]/50 blur-[100px] rounded-full" />
       </div>
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         <div className="text-center max-w-4xl mx-auto space-y-6">
           
+          {/* Executive Pill Header */}
+          <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-[#ffffff] border border-[#d4af37]/50 text-[#825e0e] text-xs font-semibold shadow-sm">
+            <Award className="w-4 h-4 text-[#cba135]" />
+            <span className="font-serif-luxury tracking-wider text-sm font-bold uppercase">Executive Corporate Practice</span>
+            <Sparkles className="w-3.5 h-3.5 text-[#cba135]" />
+          </div>
+
           {/* Main Display Headline */}
-          <h1 className="font-display text-4xl sm:text-6xl lg:text-7xl font-extrabold text-[#f2faf5] tracking-tight leading-[1.15]">
+          <h1 className="font-display text-4xl sm:text-6xl lg:text-7xl font-extrabold text-[#1c1917] tracking-tight leading-[1.15]">
             Bridging <span className="gold-gradient-text">Sustainability Mandates</span>, Accounting & Data Analytics
           </h1>
 
           {/* Credentials Pills List */}
-          <div className="pt-6 grid grid-cols-2 sm:grid-cols-4 gap-2.5 text-left max-w-4xl mx-auto">
+          <div className="pt-6 grid grid-cols-2 sm:grid-cols-4 gap-3 text-left max-w-4xl mx-auto">
             {KOHILYN_CREDENTIALS.map((cred) => (
-              <div key={cred.abbr} className="p-3.5 rounded-xl bg-[#11261b]/90 backdrop-blur border border-[#224835] hover:border-[#e5b958]/40 transition-all flex items-center gap-2.5 shadow-md">
-                <CheckCircle2 className="w-4 h-4 text-[#90d0a7] shrink-0" />
+              <div key={cred.abbr} className="p-3.5 rounded-xl bg-[#ffffff]/95 backdrop-blur border border-[#e8d29b] hover:border-[#b88a1b] transition-all flex items-center gap-2.5 shadow-sm hover:shadow-md">
+                <CheckCircle2 className="w-4 h-4 text-[#cba135] shrink-0" />
                 <div>
-                  <div className="text-sm font-bold text-[#f3d38c] font-mono">{cred.abbr}</div>
-                  <div className="text-xs text-[#a8bba0] line-clamp-1">{cred.title}</div>
+                  <div className="text-sm font-bold text-[#825e0e] font-mono">{cred.abbr}</div>
+                  <div className="text-xs text-[#5c5347] line-clamp-1">{cred.title}</div>
                 </div>
               </div>
             ))}
@@ -36,11 +42,6 @@ export const Hero: React.FC = () => {
 
         </div>
 
-      </div>
-
-      {/* Layered Silhouetted Pine Forest Canopy Backdrop at Bottom of Hero */}
-      <div className="absolute bottom-0 left-0 right-0 pointer-events-none z-0">
-        <HeroTreeSilhouette />
       </div>
     </section>
   );
